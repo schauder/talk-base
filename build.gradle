@@ -18,7 +18,7 @@ apply plugin: 'org.asciidoctor.convert'
 version = '1.0.0-SNAPSHOT'
 
 ext {
-    revealjsVersion = '3.2.0'
+    revealjsVersion = '3.3.0'
     asciidoctorBackendVersion = 'master'
     downloadDir = new File(buildDir, 'download')
     templateDir = new File(downloadDir, 'templates')
