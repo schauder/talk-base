@@ -34,7 +34,7 @@ repositories {
 
 compileSass {
     scssFile = 'src/docs/sass/schauderhaft.scss'
-    cssFile = 'schauderhaft.css'
+    cssFile = 'build/download/reveal.js/css/theme/schauderhaft.css'
 }
 
 dependencies {
