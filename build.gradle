@@ -31,12 +31,6 @@ repositories {
     jcenter()
 }
 
-
-compileSass {
-    scssFile = 'src/docs/sass/schauderhaft.scss'
-    cssFile = 'build/download/reveal.js/css/theme/schauderhaft.css'
-}
-
 dependencies {
     gems 'rubygems:slim:3.0.6'
     gems 'rubygems:thread_safe:0.3.5'
@@ -66,12 +60,18 @@ download {
     outputs.dir revealjsDir
 }
 
+compileSass {
+    dependsOn download
+    scssFile = 'src/docs/sass/schauderhaft.scss'
+    cssFile = 'build/download/reveal.js/css/theme/schauderhaft.css'
+}
+
 asciidoctorj {
     version = '1.5.4'
 }
 
 asciidoctor {
-    dependsOn jrubyPrepare, download
+    dependsOn jrubyPrepare, download, compileSass
 
     requires = ['asciidoctor-diagram']
     gemPath = jrubyPrepare.outputDir
@@ -100,7 +100,7 @@ asciidoctor {
             'idprefix': 'slide-',
             'idseparator': '-',
             'docinfo1': '',
-            'revealjs_theme': 'black',
+            'revealjs_theme': 'schauderhaft',
             'revealjs_transition': 'linear',
             'revealjs_history': 'true',
             'revealjs_slideNumber': 'true'
