@@ -60,8 +60,12 @@ download {
     outputs.dir revealjsDir
 }
 
+task themeResources(type: Copy) {
+    from 'src/docs/sass' into 'build/download/reveal.js/css/theme'
+}
+
 compileSass {
-    dependsOn download
+    dependsOn download, themeResources
     scssFile = 'src/docs/sass/schauderhaft.scss'
     cssFile = 'build/download/reveal.js/css/theme/schauderhaft.css'
 }
