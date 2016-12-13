@@ -1,4 +1,4 @@
-= Talk title
+= Talk Title
 
 content
 
@@ -13,6 +13,7 @@ Class13 --> Class14
 ....
 
 === Let's see some code
+Inline `code` looks like
 
 [[some-listing]]
 [source,java]

@@ -27,19 +27,27 @@ $color-secondary-2: #9CD975;
 $color-secondary-3: #4D941E;
 $color-secondary-4: #2C6D02;
 
-$codeBackground: $color-secondary-1;
-
 $backgroundColor: $color-primary-1;
+
+$codeBackground: $backgroundColor;
+
+
 
 // Main text
 $mainFont: Roboto, 'sans-serif';
-$mainFontSize: 36px;
+$mainFontSize: 48px;
 $mainColor: $color-primary-0;
 
 // Headings
 $headingFont: Roboto, 'sans-serif';
-$headingTextShadow: 2px 2px 2px $color-primary-3;
+$headingTextShadow: 5px 5px 5px $color-primary-1;
 $headingColor: $color-primary-0;
+$headingTextTransform: none;
+
+$heading1Size: 2.8em;
+$heading2Size: 1.6em;
+$heading3Size: 1.2em;
+$heading4Size: 1.00em;
 
 // Links
 $linkColor: $color-secondary-0;
@@ -57,7 +65,7 @@ $selectionColor: $color-primary-0;
 
 .reveal p {
   font-weight: 300;
-  text-shadow: 1px 1px $color-primary-3;
+  text-shadow: 2px 2px 2px $color-primary-1;
 }
 
 .reveal h1,
@@ -71,12 +79,20 @@ $selectionColor: $color-primary-0;
 
 .reveal p code {
   background-color: $codeBackground;
+  background-image: none;
   display: inline-block;
   border-radius: 7px;
+  font-family: "Roboto Mono";
 }
 
 .reveal small code {
   vertical-align: baseline;
+}
+
+.reveal pre code {
+  font-family: "Roboto Mono";
+  font-size: .8 * $mainFontSize;
+  line-height: 1.3;
 }
 
 body {
