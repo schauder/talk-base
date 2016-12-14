@@ -89,6 +89,10 @@ $selectionColor: $color-primary-0;
   vertical-align: baseline;
 }
 
+.reveal pre {
+  width: 100%
+}
+
 .reveal pre code {
   font-family: "Roboto Mono";
   font-size: .8 * $mainFontSize;
