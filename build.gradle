@@ -13,6 +13,12 @@ plugins {
 
 apply plugin: AsciiReveal
 
+asciiReveal {
+    srcDir = "blah"
+    srcFile = "index.ad"
+    template = "schauderhaft"
+}
+
 class AsciiReveal implements Plugin<Project> {
     void apply(Project project) {
         
@@ -20,14 +26,18 @@ class AsciiReveal implements Plugin<Project> {
         
         project.task('ascii-reveal') {
             doLast {
-                println project.asciiReveal.message
+                println project.asciiReveal.srcDir
+                println project.asciiReveal.srcFile
+                println project.asciiReveal.template
             }
         }
     }
 }
 
 class AsciiRevealExtension {
-    def String message = 'Hello from the Asciidoctor Reveal Gradle Plugin'
+    def String srcDir = "src/docs/asciidoc"
+    def String srcFile = "index.asciidoc"
+    def template = "black"
 }
 
 
