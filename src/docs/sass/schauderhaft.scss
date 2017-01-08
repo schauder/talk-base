@@ -9,7 +9,7 @@
 @import "build/download/reveal.js/css/theme/template/settings.scss";
 // ---------------------------------------------
 // Include theme-specific fonts
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Roboto|Roboto+Mono&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Roboto:200|Roboto+Mono&subset=latin-ext');
 
 // brown palette
 // Palette URL: http://paletton.com/#uid=10r1c0k4k6y3rmL3+fcd24Nlz4Y */
@@ -74,7 +74,7 @@ $selectionColor: $color-primary-0;
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  font-weight: 700;
+  font-weight: 100;
 }
 
 .reveal p code {
