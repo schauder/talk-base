@@ -15,12 +15,19 @@ apply plugin: AsciiReveal
 
 class AsciiReveal implements Plugin<Project> {
     void apply(Project project) {
+        
+        project.extensions.create("asciiReveal", AsciiRevealExtension)
+        
         project.task('ascii-reveal') {
             doLast {
-                println "Hello from the GreetingPlugin"
+                println project.asciiReveal.message
             }
         }
     }
+}
+
+class AsciiRevealExtension {
+    def String message = 'Hello from the Asciidoctor Reveal Gradle Plugin'
 }
 
 
