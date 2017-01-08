@@ -11,6 +11,20 @@ plugins {
     id 'com.github.jruby-gradle.base' version '1.3.0'
 }
 
+apply plugin: AsciiReveal
+
+class AsciiReveal implements Plugin<Project> {
+    void apply(Project project) {
+        project.task('ascii-reveal') {
+            doLast {
+                println "Hello from the GreetingPlugin"
+            }
+        }
+    }
+}
+
+
+
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'org.ysb33r.vfs'
 apply plugin: 'java'
