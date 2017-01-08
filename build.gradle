@@ -11,36 +11,13 @@ plugins {
     id 'com.github.jruby-gradle.base' version '1.3.0'
 }
 
-apply plugin: AsciiReveal
+apply plugin: de.schauderhaft.ascii.reveal.AsciiReveal
 
 asciiReveal {
     srcDir = "blah"
     srcFile = "index.ad"
     template = "schauderhaft"
 }
-
-class AsciiReveal implements Plugin<Project> {
-    void apply(Project project) {
-        
-        project.extensions.create("asciiReveal", AsciiRevealExtension)
-        
-        project.task('ascii-reveal') {
-            doLast {
-                println project.asciiReveal.srcDir
-                println project.asciiReveal.srcFile
-                println project.asciiReveal.template
-            }
-        }
-    }
-}
-
-class AsciiRevealExtension {
-    def String srcDir = "src/docs/asciidoc"
-    def String srcFile = "index.asciidoc"
-    def template = "black"
-}
-
-
 
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'org.ysb33r.vfs'
