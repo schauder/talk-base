@@ -15,7 +15,7 @@ class AsciiReveal implements Plugin<Project> {
         
         project.extensions.create("asciiReveal", AsciiRevealExtension)
 
-        project.task('ascii-reveal') {
+        project.task('asciireveal') {
             doLast {
                 println project.asciiReveal.srcDir
                 println project.asciiReveal.srcFile
