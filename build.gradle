@@ -1,13 +1,12 @@
-
 buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
     dependencies {
-        classpath 'org.ysb33r.gradle:vfs-gradle-plugin:1.0-beta8'
         classpath "gradle.plugin.name.mazgalov:gradle-sass-vaadin-compiler:0.1.1"
     }
-}
-
-plugins {
-    id 'org.asciidoctor.convert' version '1.5.3'
 }
 
 apply plugin: de.schauderhaft.ascii.reveal.AsciiReveal
@@ -20,7 +19,6 @@ asciiReveal {
 
 apply plugin: 'java'
 
-apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'name.mazgalov.vaadin.sass.compiler'
 
 version = '1.0.0-SNAPSHOT'
