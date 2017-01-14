@@ -10,7 +10,7 @@ class AsciiReveal implements Plugin<Project> {
             apply com.github.jrubygradle.JRubyPlugin
             apply org.ysb33r.gradle.vfs.VfsPlugin
             apply org.asciidoctor.gradle.AsciidoctorPlugin
-//            apply name.mazgalov.vaadin.sass.Compiler
+            apply name.mazgalov.vaadin.sass.compiler.VaadinSassCompiler
         }
         
         project.extensions.create("asciiReveal", AsciiRevealExtension)
