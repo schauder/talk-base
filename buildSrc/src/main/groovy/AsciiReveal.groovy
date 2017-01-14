@@ -13,6 +13,13 @@ class AsciiReveal implements Plugin<Project> {
             apply name.mazgalov.vaadin.sass.compiler.VaadinSassCompiler
         }
         
+        project.dependencies.with {
+            gems 'rubygems:slim:3.0.6'
+            gems 'rubygems:thread_safe:0.3.5'
+            gems 'rubygems:asciidoctor-diagram:1.4.0'
+        }
+        
+        
         project.extensions.create("asciiReveal", AsciiRevealExtension)
 
         project.task('asciireveal') {
