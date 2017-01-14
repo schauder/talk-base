@@ -2,7 +2,6 @@
 buildscript {
     dependencies {
         classpath 'org.ysb33r.gradle:vfs-gradle-plugin:1.0-beta8'
-        classpath 'commons-httpclient:commons-httpclient:3.1'
         classpath "gradle.plugin.name.mazgalov:gradle-sass-vaadin-compiler:0.1.1"
     }
 }
@@ -21,8 +20,6 @@ asciiReveal {
 
 apply plugin: 'java'
 
-apply plugin: 'com.github.jruby-gradle.base'
-apply plugin: 'org.ysb33r.vfs'
 apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'name.mazgalov.vaadin.sass.compiler'
 

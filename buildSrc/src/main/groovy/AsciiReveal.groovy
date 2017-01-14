@@ -8,7 +8,7 @@ class AsciiReveal implements Plugin<Project> {
 
         project.plugins.with {
             apply com.github.jrubygradle.JRubyPlugin
-//            apply org.ysb33r.Vfs
+            apply org.ysb33r.gradle.vfs.VfsPlugin
 //            apply org.asciidoctor.Convert
 //            apply name.mazgalov.vaadin.sass.Compiler
         }
