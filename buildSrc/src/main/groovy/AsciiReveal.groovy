@@ -6,6 +6,13 @@ import org.gradle.api.Project
 class AsciiReveal implements Plugin<Project> {
     void apply(Project project) {
 
+        project.plugins.with {
+            apply com.github.jrubygradle.JRubyPlugin
+//            apply org.ysb33r.Vfs
+//            apply org.asciidoctor.Convert
+//            apply name.mazgalov.vaadin.sass.Compiler
+        }
+        
         project.extensions.create("asciiReveal", AsciiRevealExtension)
 
         project.task('ascii-reveal') {

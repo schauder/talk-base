@@ -8,7 +8,7 @@ buildscript {
 
 plugins {
     id 'org.asciidoctor.convert' version '1.5.3'
-    id 'com.github.jruby-gradle.base' version '1.3.0'
+//    id 'com.github.jruby-gradle.base' version '1.3.0'
 }
 
 apply plugin: de.schauderhaft.ascii.reveal.AsciiReveal
@@ -19,9 +19,10 @@ asciiReveal {
     template = "schauderhaft"
 }
 
+apply plugin: 'java'
+
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'org.ysb33r.vfs'
-apply plugin: 'java'
 apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'name.mazgalov.vaadin.sass.compiler'
 
