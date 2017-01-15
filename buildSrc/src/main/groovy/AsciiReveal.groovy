@@ -19,9 +19,12 @@ class AsciiReveal implements Plugin<Project> {
             gems 'rubygems:asciidoctor-diagram:1.4.0'
         }
         
-        
         project.extensions.create("asciiReveal", AsciiRevealExtension)
 
+        project.task('themeResources', type: org.gradle.api.tasks.Copy) {
+            from 'src/docs/sass' into 'build/download/reveal.js/css/theme'
+        }
+        
         project.task('asciireveal') {
             doLast {
                 println project.asciiReveal.srcDir
