@@ -43,6 +43,10 @@ ext {
 
 
 task download {
+    description "Download extra revealjs resources"
+    outputs.dir templateDir
+    outputs.dir revealjsDir
+    
     doLast {
         mkdir downloadDir
         vfs {
@@ -57,12 +61,6 @@ task download {
                     revealjsDir, recursive: true, overwrite: true
         }
     }
-}
-
-download {
-    description "Download extra revealjs resources"
-    outputs.dir templateDir
-    outputs.dir revealjsDir
 }
 
 processResources {
