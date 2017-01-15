@@ -45,7 +45,7 @@ download {
 
 compileSass {
     dependsOn download, themeResources
-    scssFile = 'src/docs/sass/schauderhaft.scss'
+    scssFile = 'src/main/sass/schauderhaft.scss'
     cssFile = 'build/download/reveal.js/css/theme/schauderhaft.css'
 }
 

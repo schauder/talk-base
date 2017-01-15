@@ -22,7 +22,7 @@ class AsciiReveal implements Plugin<Project> {
         project.extensions.create("asciiReveal", AsciiRevealExtension)
 
         project.task('themeResources', type: org.gradle.api.tasks.Copy) {
-            from 'src/docs/sass' into 'build/download/reveal.js/css/theme'
+            from 'src/main/resources' into 'build/download/reveal.js/css/theme'
         }
         
         project.task('asciireveal') {
