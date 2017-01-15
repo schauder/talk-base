@@ -8,12 +8,13 @@ buildscript {
     dependencies {
         classpath 'commons-httpclient:commons-httpclient:3.1'
         classpath "org.ysb33r.gradle:vfs-gradle-plugin:1.0"
+        classpath "gradle.plugin.name.mazgalov:gradle-sass-vaadin-compiler:0.1.1"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'org.ysb33r.vfs'
-
+apply plugin: 'name.mazgalov.vaadin.sass.compiler'
 
 version = '1.0.0-SNAPSHOT'
 
@@ -38,7 +39,7 @@ ext {
     asciidoctorBackendVersion = 'master'
     downloadDir = new File(buildDir, 'download')
     templateDir = new File(downloadDir, 'templates')
-    revealjsDir = new File(downloadDir, 'reveal.js')
+    revealjsDir = downloadDir
 }
 
 
@@ -63,6 +64,27 @@ task download {
     }
 }
 
+task copyThemeResources(type: Copy) {
+    from 'src/main/resources' into 'build/download/reveal.js-3.3.0/css/theme'
+}
+
+compileSass {
+    dependsOn download, copyThemeResources
+    scssFile = 'src/main/sass/schauderhaft.scss'
+    cssFile = 'build/download/reveal.js-3.3.0/css/theme/schauderhaft.css'
+}
+
+task setupTools {
+    dependsOn download, compileSass
+}
+
+task zipTools(type: Zip) {
+    dependsOn setupTools
+    from ('build/download')
+    archiveName('download.zip')
+    destinationDir file('build/resources/main')
+}
+
 processResources {
-    dependsOn download
+    dependsOn zipTools
 }
