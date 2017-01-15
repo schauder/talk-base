@@ -2,15 +2,14 @@ package de.schauderhaft.ascii.reveal
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.Copy
 
 class AsciiReveal implements Plugin<Project> {
     void apply(Project project) {
 
         project.plugins.with {
             apply com.github.jrubygradle.JRubyPlugin
-            apply org.ysb33r.gradle.vfs.VfsPlugin
             apply org.asciidoctor.gradle.AsciidoctorPlugin
-            apply name.mazgalov.vaadin.sass.compiler.VaadinSassCompiler
         }
         
         project.dependencies.with {
@@ -18,12 +17,17 @@ class AsciiReveal implements Plugin<Project> {
             gems 'rubygems:thread_safe:0.3.5'
             gems 'rubygems:asciidoctor-diagram:1.4.0'
         }
+
+        project.task('setupTools', type: Copy) {
+            def url = this.getClass().getResource("/download.zip")
+            def zipFile = new File(url.toURI())
+            def outputDir = project.file("${project.buildDir}/download")
+            
+            from project.zipTree(zipFile)
+            into outputDir
+        }
         
         project.extensions.create("asciiReveal", AsciiRevealExtension)
-
-        project.task('themeResources', type: org.gradle.api.tasks.Copy) {
-            from 'src/main/resources' into 'build/download/reveal.js/css/theme'
-        }
         
         project.task('asciireveal') {
             doLast {

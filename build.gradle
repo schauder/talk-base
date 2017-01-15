@@ -11,12 +11,17 @@ apply plugin: 'java'
 
 version = '1.0.0-SNAPSHOT'
 
-task setupAsciiDoc{}
+ext {
+    revealjsVersion = '3.3.0'
+    asciidoctorBackendVersion = 'master'
+    downloadDir = new File(buildDir, 'download')
+    templateDir = new File(downloadDir, 'templates')
+    revealjsDir = downloadDir
+}
 
-task setupReveal{}
 
 asciidoctor {
-    dependsOn jrubyPrepare, setupAsciiDoc, setupReveal
+    dependsOn jrubyPrepare, setupTools
 
     requires = ['asciidoctor-diagram']
     gemPath = jrubyPrepare.outputDir
