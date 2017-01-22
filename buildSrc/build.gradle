@@ -39,7 +39,7 @@ ext {
     asciidoctorBackendVersion = 'master'
     downloadDir = new File(buildDir, 'download')
     templateDir = new File(downloadDir, 'templates')
-    revealjsDir = downloadDir
+    revealjsDir = new File (downloadDir, 'reveal.js')
 }
 
 
@@ -65,13 +65,13 @@ task download {
 }
 
 task copyThemeResources(type: Copy) {
-    from 'src/main/resources' into 'build/download/reveal.js-3.3.0/css/theme'
+    from 'src/main/resources' into 'build/download/reveal.js/css/theme'
 }
 
 compileSass {
     dependsOn download, copyThemeResources
     scssFile = 'src/main/sass/schauderhaft.scss'
-    cssFile = 'build/download/reveal.js-3.3.0/css/theme/schauderhaft.css'
+    cssFile = 'build/download/reveal.js/css/theme/schauderhaft.css'
 }
 
 task setupTools {
